@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="product__action" v-if="!on_sale">
-      <button>Add to cart</button>
+      <button class="btn btn--add">Add to cart</button>
     </div>
   </div>
 </template>
@@ -108,6 +108,9 @@ export default {
 .not-avaliable {
   text-decoration: line-through;
 }
+.product__action {
+  padding: 1rem
+}
 .not-avaliable-product {
   transform: skewY(-20deg);
   left: 0px;
@@ -115,5 +118,19 @@ export default {
   bottom: 7rem;
   width: 100%;
 }
-
+.btn--add {
+  padding: 1.5rem;
+  background: #CFF9DE;
+  color: white;
+  border-style: none;
+  font-size: 1rem;
+  color: #2F3E4E;
+  font-weight: bold;
+  transition: all 1s ease;
+  border-radius: 12px;
+}
+.btn--add:hover{
+  background: #B9EED3;
+  cursor: pointer;
+}
 </style>

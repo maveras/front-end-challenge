@@ -1,5 +1,6 @@
 # amarofront
 
+this is a personal challenge, just for love <3
 > A Vue.js project
 
 ## Build Setup

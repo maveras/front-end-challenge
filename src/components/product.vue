@@ -1,40 +1,31 @@
 <template>
   <div class="product">
-    <div class="product__pic">
+    <div class="product__pic pr">
       <img class="product__pic__img" :src="image" alt="">
-      <div class="product__avaliability">
-        <span>Not avaliable</span>
+      <div class="product__avaliability" v-if="on_sale">
+        <span class="not-avaliable-product pa">Not avaliable</span>
       </div>
     </div>
     <div class="product__name">
       {{name}}
     </div>
     <div class="price">
-      <div class="price__original">
-        <span>1</span>
+      <div class="price__original" v-if="!samePrice">
+        <span>{{regular_price}}</span>
       </div>
       <div class="price__discount">
-        1000
+        {{actual_price}}
       </div>
     </div>
     <div class="product__sizes">
       <div class="size">
         <span>Sizes:</span>
       </div>
-      <div class="size__item">
-        <span>xs</span>
-      </div>
-      <div class="size__item">
-        <span>xs</span>
-      </div>
-      <div class="size__item">
-        <span>xs</span>
-      </div>
-      <div class="size__item">
-        <span>xs</span>
+      <div class="size__item" v-for="size in sizes">
+        <span :class="{'not-avaliable': !avaliableSize(size)}">{{size.size}}</span>
       </div>
     </div>
-    <div class="product__action">
+    <div class="product__action" v-if="!on_sale">
       <button>Add to cart</button>
     </div>
   </div>
@@ -50,6 +41,16 @@ export default {
 
     }
   },
+  methods: {
+    avaliableSize (size) {
+      return size.available
+    }
+  },
+  computed: {
+    samePrice () {
+      return this.actual_price === this.regular_price
+    }
+  },
   props: ['name',
           'image',
           'regular_price',
@@ -60,9 +61,15 @@ export default {
 
 
 <style lang="css" scoped>
+.pr {
+  position: relative;
+}
+.pa{
+  position: absolute;
+}
 .product {
   padding: 1rem;
-  box-shadow: 5px 10px 10px #888888;
+  box-shadow: 5px 10px 15px #888888;
   margin: .5rem;
 
 }
@@ -81,11 +88,14 @@ export default {
 .price {
   margin: .5rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+
 }
 
 .price__original {
-  color: #B9B9B9
+  color: #B9B9B9;
+  margin-left: 1rem;
+  text-decoration: line-through;
 }
 .product__sizes {
   margin: .5rem;
@@ -94,6 +104,16 @@ export default {
 }
 .size {
   font-weight: bold;
+}
+.not-avaliable {
+  text-decoration: line-through;
+}
+.not-avaliable-product {
+  transform: skewY(-20deg);
+  left: 0px;
+  background: #F9D45E;
+  bottom: 1rem;
+  width: 100%;
 }
 
 </style>

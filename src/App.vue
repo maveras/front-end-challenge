@@ -1,7 +1,14 @@
 <template>
   <div id="app">
     <navbar></navbar>
-    <product v-for="product in products" :image="product.image" :name="product.name" ></product>
+    <product v-for="product in products"
+    :image="product.image"
+    :name="product.name"
+    :regular_price="product.regular_price"
+    :actual_price="product.actual_price"
+    :sizes="product.sizes"
+    :on_sale="product.on_sale"
+    ></product>
   </div>
 </template>
 

@@ -50,14 +50,21 @@ export default {
 
     }
   },
-  props: ['name','image','regular_price','actual_price','sizes','on_sale']
+  props: ['name',
+          'image',
+          'regular_price',
+          'actual_price',
+          'sizes','on_sale']
 }
 </script>
 
 
 <style lang="css" scoped>
 .product {
-  padding: 1rem
+  padding: 1rem;
+  box-shadow: 5px 10px 10px #888888;
+  margin: .5rem;
+
 }
 .product__pic__img {
   width: 100%

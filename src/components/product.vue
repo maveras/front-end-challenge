@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <div class="product__pic pr">
+    <div class="product__pic pr" v-if="image !== '' ">
       <img class="product__pic__img" :src="image" alt="">
       <div class="product__avaliability" v-if="on_sale">
         <span class="not-avaliable-product pa">Not avaliable</span>
@@ -112,7 +112,7 @@ export default {
   transform: skewY(-20deg);
   left: 0px;
   background: #F9D45E;
-  bottom: 1rem;
+  bottom: 7rem;
   width: 100%;
 }
 

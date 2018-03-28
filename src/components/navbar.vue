@@ -13,7 +13,7 @@
       </div>
       <div class="option__item pos-rel">
         <span><i class="fas fa-shopping-bag"></i></span>
-        <span class="cart_qty pos-a">1</span>
+        <span class="cart_qty pos-a">{{cartProducts}}</span>
       </div>
     </div>
   </div>
@@ -40,6 +40,11 @@ export default {
           this.stickNavBar = false
         }
       })
+    }
+  },
+  computed :{
+    cartProducts () {
+      return this.$store.getters.getCart.length
     }
   },
   mounted () {

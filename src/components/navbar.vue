@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" :class="{'navbar--fixed':stickNavBar}">
     <div class="navbar__item__hamburger">
       <span><i class="fas fa-bars"></i></span>
     </div>
@@ -26,8 +26,24 @@ export default {
 
   data () {
     return {
-
+      stickNavBar: false
     }
+  },
+  methods: {
+    setScrollBar () {
+      let navbar = document.querySelector('.navbar')
+      let navarSize = navbar.offsetHeight
+      window.addEventListener('scroll', evt => {
+        if (window.pageYOffset > navarSize) {
+          this.stickNavBar = true
+        } else {
+          this.stickNavBar = false
+        }
+      })
+    }
+  },
+  mounted () {
+    this.setScrollBar()
   }
 }
 </script>
@@ -45,6 +61,15 @@ export default {
   padding: 1rem;
   flex-flow: row;
   justify-content: space-between;
+  box-shadow: 4px 0px 33px #888888;
+}
+.navbar--fixed {
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  background: white;
+  position: fixed;
 }
 
 .navbar__options {

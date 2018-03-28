@@ -44,4 +44,10 @@ export default {
   color: #2c3e50;
   font-size: 1.5rem;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 </style>

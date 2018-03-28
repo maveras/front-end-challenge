@@ -84,12 +84,13 @@ export default {
 .cart_qty {
   bottom: 16px;
   left: 11px;
-  width: .8rem;
-  height: .8rem;
-  line-height: .8rem;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1rem;
   border: solid 1px;
-  color: white;
-  background: #2c3e50;
-  border-radius: 50%
+  background: #FAD55F;
+  border-radius: 50%;
+  font-size: .8rem;
+  font-weight: bold;
 }
 </style>

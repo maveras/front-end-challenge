@@ -120,7 +120,7 @@ export default {
 }
 .btn--add {
   padding: 1.5rem;
-  background: #CFF9DE;
+  background: #FAD55F;
   color: white;
   border-style: none;
   font-size: 1rem;
@@ -130,7 +130,7 @@ export default {
   border-radius: 12px;
 }
 .btn--add:hover{
-  background: #B9EED3;
+  background: #FAD55F;
   cursor: pointer;
 }
 </style>

@@ -8,6 +8,7 @@
     :actual_price="product.actual_price"
     :sizes="product.sizes"
     :on_sale="product.on_sale"
+    :product="product"
     ></product>
   </div>
 </template>

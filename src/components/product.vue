@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="product__action" v-if="!on_sale">
-      <button class="btn btn--add">Add to cart</button>
+      <button class="btn btn--add" @click="addProductToCart(product)">Add to cart</button>
     </div>
   </div>
 </template>
@@ -44,6 +44,9 @@ export default {
   methods: {
     avaliableSize (size) {
       return size.available
+    },
+    addProductToCart(product) {
+      this.$store.dispatch('ADD_PRODUCT_TO_CART', product)
     }
   },
   computed: {
@@ -55,7 +58,9 @@ export default {
           'image',
           'regular_price',
           'actual_price',
-          'sizes','on_sale']
+          'sizes',
+          'on_sale',
+          'product']
 }
 </script>
 

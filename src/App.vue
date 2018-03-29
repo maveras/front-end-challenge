@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="pr">
     <navbar></navbar>
     <product v-for="product in products"
     :image="product.image"
@@ -10,6 +10,8 @@
     :on_sale="product.on_sale"
     :product="product"
     ></product>
+    <cart></cart>
+
   </div>
 </template>
 
@@ -17,6 +19,8 @@
 import productsJson from './statics/products.json'
 import navbar from './components/navbar'
 import product from './components/product'
+import cart from './components/cart'
+
 export default {
   name: 'app',
   data () {
@@ -26,7 +30,8 @@ export default {
   },
   components: {
     navbar,
-    product
+    product,
+    cart
   },
   computed : {
     products () {
@@ -50,5 +55,13 @@ body {
   margin: 0;
   padding: 0;
 }
+.pa {
+  position: absolute;
+}
+
+.pr {
+  position: relative;
+}
+
 
 </style>

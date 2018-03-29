@@ -11,7 +11,7 @@
       <div class="option__item">
         <span><i class="far fa-heart"></i></span>
       </div>
-      <div class="option__item pos-rel">
+      <div class="option__item pos-rel" @click="showCart">
         <span><i class="fas fa-shopping-bag"></i></span>
         <span class="cart_qty pos-a">{{cartProducts}}</span>
       </div>
@@ -40,6 +40,9 @@ export default {
           this.stickNavBar = false
         }
       })
+    },
+    showCart () {
+      this.$store.commit('VIEW_CART')
     }
   },
   computed :{

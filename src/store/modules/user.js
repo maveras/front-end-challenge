@@ -5,6 +5,10 @@ const state = {
 const mutations = {
   addProductToCart (state, product) {
     state.cart.push(product)
+  },
+  REMOVE_PRODUCT_FROM_CART (state, index) {
+    console.log('borro el elemento', index)
+    state.cart.splice(index, 1)
   }
 }
 const getters = {

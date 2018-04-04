@@ -8,21 +8,27 @@
       </div>
       <div class="cart__list">
         <div class="cart_title" v-if="!emptyChart">
+          <div class="back-arrow-container" @click="hide">
+            <i class="fas fa-arrow-left"></i>  
+          </div>
           My products
         </div>
-        <li class="cart__list__item" v-for="(product, index) in userCart">
-          <div class="cart-item__img">
-            <img class="cart_img" :src="product.image" alt="">
-          </div>
-          <div class="cart-item-detail">
-            <div class="cart-item-detail__title">
-              {{product.name}}
+          <li class="cart__list__item" v-for="(product, index) in userCart">
+            <div class="cart-item__img">
+              <img class="cart_img" :src="product.image" alt="">
             </div>
-          </div>
-          <div @click="removeFromCart(product, index)"class="cart-item__remove">
-            X
-          </div>
-        </li>
+            <div class="cart-item-detail">
+              <div class="cart-item-detail__title">
+                {{product.name}}
+              </div>
+              <div class="cart-item-detail__price">
+                {{product.actual_price}}
+              </div>
+            </div>
+            <div @click="removeFromCart(product, index)"class="cart-item__remove">
+              X
+            </div>
+          </li>
       </div>
     </div>
   </div>
@@ -43,6 +49,7 @@ export default {
       this.$store.commit('REMOVE_PRODUCT_FROM_CART', index)
     },
     hide() {
+      console.log('apretaron')
       this.$store.commit('VIEW_CART')
     }
   },
@@ -63,6 +70,9 @@ export default {
 <style lang="css" scoped>
   .pa {
     position: absolute;
+  }
+  .back-arrow-container {
+    display: inline-block;
   }
   .offlist{
     background-color:rgb(255,0,0);
@@ -87,7 +97,7 @@ export default {
     opacity: 0;
     height:100%;
     overflow-y: scroll;
-   
+
   }
   .cart_title{
     border-bottom: 1px solid grey;

@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="search-bar" :class="{'search-bar--show': showSearch}">
-      <input type="text" @keyup.enter="searchProduct" v-model="searchInput" class="search-input" >
+      <input type="text" @keyup="searchProduct" v-model="searchInput" class="search-input" >
     </div>
   </div>
 </template>

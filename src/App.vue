@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import productsJson from './statics/products.json'
 import navbar from './components/navbar'
 import product from './components/product'
 import cart from './components/cart'
@@ -35,7 +34,7 @@ export default {
   },
   computed : {
     products () {
-      return productsJson.products
+      return this.$store.getters.getProducts
     }
   }
 }
